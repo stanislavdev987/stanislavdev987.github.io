@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VoidPixel Studio</title>
+
+<style>
+
+/* ========================= */
+/* ROOT VARIABLES */
+/* ========================= */
+
+:root{
+
+--bg1:#050816;
+--bg2:#02030a;
+--panel:#0f172a;
+--text:#ffffff;
+--muted:#9aa4b2;
+
+--cyan:#00ffff;
+--pink:#ff00ff;
+--purple:#7c5cff;
+
+--max:1500px;
+
+}
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+
+}
+
+body{
+
+background:radial-gradient(circle at top,var(--bg1),var(--bg2));
+color:var(--text);
+overflow-x:hidden;
+
+}
+
+/* ========================= */
+/* WRAPPER */
+/* ========================= */
+
+.wrapper{
+
+max-width:var(--max);
+margin:auto;
+padding:30px;
+
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:var(--cyan);
+text-shadow:0 0 10px var(--cyan);
+
+}
+
+nav a{
+
+margin-left:25px;
+text-decoration:none;
+color:var(--muted);
+transition:0.3s;
+
+}
+
+nav a:hover{
+
+color:white;
+
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+
+text-align:center;
+padding:140px 20px;
+
+}
+
+.hero h1{
+
+font-size:64px;
+margin-bottom:20px;
+
+background:linear-gradient(90deg,#ffffff,#00ffff,#ff00ff);
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+.hero p{
+
+font-size:18px;
+color:var(--muted);
+margin-bottom:40px;
+
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.button{
+
+padding:15px 40px;
+border-radius:30px;
+
+background:linear-gradient(90deg,var(--cyan),var(--pink));
+
+border:none;
+font-weight:bold;
+cursor:pointer;
+color:black;
+
+}
+
+/* ========================= */
+/* SECTION TITLE */
+/* ========================= */
+
+.section-title{
+
+font-size:42px;
+text-align:center;
+margin:100px 0 40px 0;
+
+}
+
+/* ========================= */
+/* APPS GRID */
+/* ========================= */
+
+.apps{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.card{
+
+background:var(--panel);
+border-radius:25px;
+padding:25px;
+transition:0.4s;
+
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+box-shadow:0 0 30px rgba(0,255,255,0.4);
+
+}
+
+.card h3{
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+color:var(--muted);
+margin-bottom:20px;
+
+}
+
+/* ========================= */
+/* DOWNLOAD BUTTON */
+/* ========================= */
+
+.download{
+
+display:inline-block;
+padding:12px 25px;
+
+border-radius:20px;
+
+background:var(--cyan);
+color:black;
+
+text-decoration:none;
+font-weight:bold;
+
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+margin-top:140px;
+text-align:center;
+color:var(--muted);
+padding:40px;
+
+}
+
+/* ========================= */
+/* CYBER GRID BACKGROUND */
+/* ========================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background-image:
+linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,255,0.05) 1px, transparent 1px);
+
+background-size:60px 60px;
+
+pointer-events:none;
+
+}
+
+/* ========================= */
+/* PARTICLES */
+/* ========================= */
+
+.particles{
+
+position:fixed;
+inset:0;
+pointer-events:none;
+
+}
+
+.particle{
+
+position:absolute;
+width:4px;
+height:4px;
+
+background:var(--cyan);
+border-radius:50%;
+
+animation:float 10s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-800px);
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header>
+
+<div class="logo">VOIDPIXEL STUDIO</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#apps">Apps</a>
+<a href="#updates">Updates</a>
+<a href="#downloads">Downloads</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Cyber Android Development</h1>
+
+<p>
+VoidPixel Studio creates experimental Android apps,
+neon interfaces and music technology.
+</p>
+
+<button class="button">Explore Apps</button>
+
+</section>
+<section id="apps">
+
+<h2 class="section-title">Our Apps</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>MusicMoodPlayer</h3>
+
+<p>
+Modern Android music player with cyberpunk design,
+Material style, music playback and experimental interface ideas.
+</p>
+
+<a class="download" href="#">
+Download APK
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Future Project</h3>
+
+<p>
+New Android application currently in development.
+This card can be used for the next release.
+</p>
+
+<a class="download" href="#">
+Coming Soon
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Cyber Utility</h3>
+
+<p>
+Experimental utility app with futuristic UI,
+neon panels and fast interactions.
+</p>
+
+<a class="download" href="#">
+Preview
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Void Interface Lab</h3>
+
+<p>
+A place for interface experiments, concept screens,
+animations and interaction prototypes.
+</p>
+
+<a class="download" href="#">
+Prototype
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="downloads">
+
+<h2 class="section-title">Download Hub</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>MusicMoodPlayer v0.1</h3>
+
+<p>
+First public build of MusicMoodPlayer.
+Use this section to publish APK files directly from your site.
+</p>
+
+<a class="download" href="#">
+Download APK
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Latest Build</h3>
+
+<p>
+This block can contain the latest test release,
+beta build or experimental APK.
+</p>
+
+<a class="download" href="#">
+Latest Build
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Archive</h3>
+
+<p>
+Old versions of your apps can be placed here,
+so users can access previous builds.
+</p>
+
+<a class="download" href="#">
+Open Archive
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Upcoming Release</h3>
+
+<p>
+Use this card for announcements and countdowns
+for your next Android application.
+</p>
+
+<a class="download" href="#">
+Soon
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="updates">
+
+<h2 class="section-title">Devlog / Updates</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>MusicMoodPlayer v0.1</h3>
+
+<p>
+Base structure of the app is ready:
+main screen, player concept and first UI ideas.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Neon Website Build</h3>
+
+<p>
+VoidPixel Studio website launched with cyberpunk visuals,
+glow effects and app download hub.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Next Milestone</h3>
+
+<p>
+Upcoming goals: better app cards,
+pages for projects and more polished UI sections.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="showcase">
+
+<h2 class="section-title">Interface Showcase</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Music UI Concepts</h3>
+
+<p>
+Large player screens, mini-player panels,
+glowing buttons and futuristic audio interfaces.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Cyberpunk Layouts</h3>
+
+<p>
+Dark surfaces, neon highlights, glass cards
+and visual depth designed for premium-looking apps.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Material Experiments</h3>
+
+<p>
+Modern Android inspired layouts with layered panels
+and custom neon atmosphere.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section id="studio">
+
+<h2 class="section-title">Studio Matrix</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>VoidPixel Studio Identity</h3>
+
+<p>
+VoidPixel Studio is focused on Android apps,
+music technology, experimental interfaces
+and futuristic visual systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Design Philosophy</h3>
+
+<p>
+We mix dark surfaces, glowing accents,
+layered panels and minimal structure
+to create a cyberpunk-inspired identity.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Development Focus</h3>
+
+<p>
+Android apps, player interfaces,
+neon dashboards, interactive layouts
+and polished app presentation.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="matrix-panels">
+
+<h2 class="section-title">Neon Matrix Panels</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Panel 01</h3>
+
+<p>
+Core development direction:
+Android applications and user interfaces
+with strong futuristic atmosphere.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Panel 02</h3>
+
+<p>
+Visual experiments:
+glassmorphism, glow borders,
+neon gradients and sci-fi composition.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Panel 03</h3>
+
+<p>
+Music systems:
+players, playlists, mini controls,
+album cards and media visualization.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Panel 04</h3>
+
+<p>
+Release hub:
+download pages, version cards,
+preview sections and update logs.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Panel 05</h3>
+
+<p>
+Future plans:
+bigger applications, stronger branding
+and premium indie-developer presence.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Panel 06</h3>
+
+<p>
+VoidPixel ecosystem:
+all apps, experiments and concepts
+presented as one connected universe.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="vision">
+
+<h2 class="section-title">Creative Vision</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Music + Cyberpunk</h3>
+
+<p>
+One of the main directions is to combine
+music technology with futuristic interface design.
+This gives apps a stronger identity and atmosphere.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Studio Presence</h3>
+
+<p>
+This site is not just a landing page —
+it can become the central hub for releases,
+projects, updates and branding.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Independent Development</h3>
+
+<p>
+VoidPixel Studio represents
+independent Android development
+with visual ambition and experimental ideas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="release-map">
+
+<h2 class="section-title">Release Map</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Stage 1</h3>
+
+<p>
+Launch website and publish first app cards.
+Establish developer identity and online presence.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Stage 2</h3>
+
+<p>
+Release MusicMoodPlayer builds and improve
+download infrastructure for APK distribution.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Stage 3</h3>
+
+<p>
+Expand with new apps, experiments,
+concept interfaces and release notes.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Stage 4</h3>
+
+<p>
+Build a recognizable cyber developer brand
+with signature visuals and consistent experience.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="app-vision">
+
+<h2 class="section-title">App Vision</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>MusicMoodPlayer</h3>
+
+<p>
+A futuristic music player with layered cards,
+glowing controls, atmospheric screens
+and streaming-ready architecture.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Void Utility</h3>
+
+<p>
+A clean cyber tool app concept:
+fast, minimal, dark and stylish.
+Perfect for utility experiments.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Interface Playground</h3>
+
+<p>
+A project area for UI showcases,
+layout experiments and animated screens
+that strengthen the brand style.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="download-panels">
+
+<h2 class="section-title">APK Access Nodes</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Main Download</h3>
+
+<p>
+Use this block for your primary APK link
+and the latest stable release of your app.
+</p>
+
+<a class="download" href="#">
+Primary APK
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Beta Channel</h3>
+
+<p>
+This section can host test builds
+for users who want to try early versions.
+</p>
+
+<a class="download" href="#">
+Beta APK
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Experimental Build</h3>
+
+<p>
+Perfect for interface experiments
+and preview versions of future apps.
+</p>
+
+<a class="download" href="#">
+Experimental
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="status">
+
+<h2 class="section-title">System Status</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Brand Status</h3>
+
+<p>
+VoidPixel Studio identity active.
+Cyber interface language established.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Website Status</h3>
+
+<p>
+Core developer site is online.
+Download hub and project presentation ready.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Development Status</h3>
+
+<p>
+Music app direction in progress.
+Visual style and framework continue to evolve.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section id="featured-projects">
+
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>MusicMoodPlayer Release Line</h3>
+
+<p>
+Main product direction for VoidPixel Studio.
+This section can present screenshots, release notes,
+APK links and version roadmap.
+</p>
+
+<a class="download" href="#">
+Open Project
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Future Android App</h3>
+
+<p>
+Placeholder for the next major application.
+Can be used for teaser cards, announcements
+and early concept presentation.
+</p>
+
+<a class="download" href="#">
+View Concept
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>UI Experiment Collection</h3>
+
+<p>
+A visual archive of interface concepts,
+cyber panels, media cards and futuristic mobile layouts.
+</p>
+
+<a class="download" href="#">
+Open Gallery
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="showroom">
+
+<h2 class="section-title">Studio Showroom</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Neon Panels</h3>
+
+<p>
+Dark cards with glowing borders,
+cyber gradients and layered composition
+for premium-looking application presentation.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Music Experience</h3>
+
+<p>
+Mini players, full players,
+album cards and release hubs
+all styled inside one visual universe.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Independent Studio Feel</h3>
+
+<p>
+The goal is to make this website feel
+like the digital home of an indie cyber studio,
+not just a simple portfolio.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Release Nodes</h3>
+
+<p>
+Every project card can later be turned
+into a full release page with APK,
+screenshots and version history.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="timeline">
+
+<h2 class="section-title">Development Timeline</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>2026 / Site Launch</h3>
+
+<p>
+VoidPixel Studio web identity established.
+Main cyberpunk website structure published online.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>2026 / First Releases</h3>
+
+<p>
+MusicMoodPlayer and future applications
+can be distributed directly from this portal.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Next Phase</h3>
+
+<p>
+Expand to more Android apps,
+more release sections and stronger branding.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contacts">
+
+<h2 class="section-title">Contact Nodes</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Telegram</h3>
+
+<p>
+Replace this with your real Telegram username
+so users can contact you directly.
+</p>
+
+<a class="download" href="#">
+@your_telegram
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>GitHub</h3>
+
+<p>
+Use this block for your GitHub profile,
+repositories and public development projects.
+</p>
+
+<a class="download" href="#">
+github.com/yourname
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Email</h3>
+
+<p>
+Professional contact address for business,
+feedback and collaboration requests.
+</p>
+
+<a class="download" href="#">
+you@example.com
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="studio-footer-panels">
+
+<h2 class="section-title">Studio Core</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Brand</h3>
+
+<p>
+VOIDPIXEL STUDIO is built as a futuristic
+Android development identity with strong neon visuals
+and app-centered presentation.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Mission</h3>
+
+<p>
+To create Android applications with atmosphere,
+clarity, cyberpunk depth and a recognizable visual signature.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Output</h3>
+
+<p>
+Apps, concepts, release notes,
+download pages and experimental interface systems.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="portal-end">
+
+<h2 class="section-title">Portal Access</h2>
+
+<div class="apps">
+
+<div class="card">
+
+<h3>Main Access Point</h3>
+
+<p>
+This website serves as your central portal:
+all projects, downloads and updates can live here.
+</p>
+
+<a class="download" href="#">
+Enter Hub
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Release Stream</h3>
+
+<p>
+A section for upcoming releases,
+beta channels and app update announcements.
+</p>
+
+<a class="download" href="#">
+View Stream
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Studio Presence</h3>
+
+<p>
+With enough updates and apps,
+this portal can grow into a full indie developer studio site.
+</p>
+
+<a class="download" href="#">
+Explore Studio
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 VOIDPIXEL STUDIO</p>
+<p>Cyber Android Development • Neon Interfaces • Music Technology</p>
+
+</footer>
+
+</div>
+
+<div class="particles">
+
+<div class="particle" style="left:10%; top:90%; animation-duration:10s;"></div>
+<div class="particle" style="left:20%; top:95%; animation-duration:12s;"></div>
+<div class="particle" style="left:35%; top:88%; animation-duration:9s;"></div>
+<div class="particle" style="left:50%; top:94%; animation-duration:13s;"></div>
+<div class="particle" style="left:65%; top:91%; animation-duration:11s;"></div>
+<div class="particle" style="left:80%; top:96%; animation-duration:10s;"></div>
+<div class="particle" style="left:90%; top:89%; animation-duration:14s;"></div>
+
+</div>
+<div id="cursorGlow"></div>
+
+<script>
+
+/* ========================= */
+/* GLOW CURSOR */
+/* ========================= */
+
+const cursorGlow = document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", function(e){
+
+cursorGlow.style.left = e.clientX + "px";
+cursorGlow.style.top = e.clientY + "px";
+
+});
+
+/* ========================= */
+/* SMOOTH HERO BUTTON */
+/* ========================= */
+
+const exploreBtn = document.querySelector(".button");
+
+if(exploreBtn){
+
+exploreBtn.addEventListener("click", function(){
+
+const appsSection = document.getElementById("apps");
+
+if(appsSection){
+appsSection.scrollIntoView({behavior:"smooth"});
+}
+
+});
+
+}
+
+/* ========================= */
+/* CARD INTERACTION */
+/* ========================= */
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+card.addEventListener("mouseenter", function(){
+
+card.style.boxShadow = "0 0 35px rgba(0,255,255,0.35), 0 10px 40px rgba(0,0,0,0.5)";
+
+});
+
+card.addEventListener("mouseleave", function(){
+
+card.style.boxShadow = "0 10px 40px rgba(0,0,0,0.5)";
+
+});
+
+});
+
+/* ========================= */
+/* NAV ACTIVE FEEL */
+/* ========================= */
+
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach(link => {
+
+link.addEventListener("mouseenter", function(){
+
+link.style.textShadow = "0 0 10px cyan";
+
+});
+
+link.addEventListener("mouseleave", function(){
+
+link.style.textShadow = "none";
+
+});
+
+});
+
+/* ========================= */
+/* RANDOM PARTICLE TWINKLE */
+/* ========================= */
+
+const particles = document.querySelectorAll(".particle");
+
+setInterval(() => {
+
+particles.forEach(p => {
+
+const randomOpacity = Math.random() * 1;
+const randomScale = 0.5 + Math.random();
+
+p.style.opacity = randomOpacity;
+p.style.transform = "scale(" + randomScale + ")";
+
+});
+
+}, 1200);
+
+/* ========================= */
+/* SECTION REVEAL */
+/* ========================= */
+
+const sections = document.querySelectorAll("section");
+
+const revealOnScroll = () => {
+
+const triggerBottom = window.innerHeight * 0.88;
+
+sections.forEach(section => {
+
+const rect = section.getBoundingClientRect();
+
+if(rect.top < triggerBottom){
+
+section.style.opacity = "1";
+section.style.transform = "translateY(0px)";
+
+}
+
+});
+
+};
+
+sections.forEach(section => {
+
+section.style.opacity = "0";
+section.style.transform = "translateY(30px)";
+section.style.transition = "0.8s ease";
+
+});
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* ========================= */
+/* LOGO GLOW PULSE */
+/* ========================= */
+
+const logo = document.querySelector(".logo");
+
+if(logo){
+
+setInterval(() => {
+
+logo.style.textShadow = "0 0 20px cyan, 0 0 40px cyan";
+
+setTimeout(() => {
+logo.style.textShadow = "0 0 10px cyan";
+}, 700);
+
+}, 2500);
+
+}
+
+</script>
+
+<style>
+
+/* ========================= */
+/* FINAL EXTRA STYLES */
+/* ========================= */
+
+#cursorGlow{
+
+position:fixed;
+width:180px;
+height:180px;
+border-radius:50%;
+
+background:radial-gradient(circle, rgba(0,255,255,0.22), rgba(0,255,255,0));
+
+pointer-events:none;
+transform:translate(-50%,-50%);
+filter:blur(22px);
+z-index:9999;
+
+}
+
+section{
+
+transition:0.8s ease;
+
+}
+
+/* ========================= */
+/* EXTRA NEON TEXT STYLE */
+/* ========================= */
+
+.section-title{
+
+text-shadow:0 0 12px rgba(255,0,255,0.15);
+
+}
+
+/* ========================= */
+/* FOOTER STYLE UPGRADE */
+/* ========================= */
+
+footer p{
+
+margin-top:8px;
+color:var(--muted);
+
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:900px){
+
+header{
+
+flex-direction:column;
+gap:20px;
+
+}
+
+nav{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+
+}
+
+nav a{
+
+margin-left:0;
+
+}
+
+.hero h1{
+
+font-size:44px;
+
+}
+
+.hero{
+
+padding:90px 10px;
+
+}
+
+.section-title{
+
+font-size:32px;
+
+}
+
+.wrapper{
+
+padding:20px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.button{
+
+width:100%;
+
+}
+
+.logo{
+
+font-size:22px;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+}
+
+</style>
+
+</body>
+</html>
