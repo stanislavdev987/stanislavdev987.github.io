@@ -1,80 +1,55 @@
 package com.example.liquidmusic.ui.glass
 
-import android.os.Build
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
-import io.github.kyant0.backdrop.BlurEffect
-import io.github.kyant0.backdrop.TileMode
-import io.github.kyant0.backdrop.drawBackdrop
-import io.github.kyant0.backdrop.layerBackdrop
-import io.github.kyant0.backdrop.rememberLayerBackdrop
+import com.kyant.backdrop.Backdrop
+import com.kyant.backdrop.drawBackdrop
+import com.kyant.backdrop.effects.blur
+import com.kyant.backdrop.effects.lens
+import com.kyant.backdrop.effects.vibrancy
+import com.kyant.shapes.Capsule
 
+/**
+ * Стеклянный элемент с LiquidGlass эффектом от kyant0.
+ *
+ * Требует, чтобы родительский контейнер имел Modifier.layerBackdrop(backdrop).
+ *
+ * @param backdrop      создаётся через rememberLayerBackdrop() в родителе
+ * @param blurRadius    радиус blur в dp
+ * @param lensX         горизонтальное преломление в dp
+ * @param lensY         вертикальное преломление в dp
+ * @param surfaceColor  тонировка поверхности стекла
+ */
 @Composable
-fun RefractionGlassBox(
+fun LiquidGlassBox(
+    backdrop: Backdrop,
     modifier: Modifier = Modifier,
-    refraction: Float = 0.3f,
-    shape: Shape = CircleShape,
-    tint: Color = Color.White.copy(alpha = 0.08f),
+    blurRadius: Float = 8f,
+    lensX: Float = 12f,
+    lensY: Float = 24f,
+    surfaceColor: Color = Color.White.copy(alpha = 0.10f),
     content: @Composable BoxScope.() -> Unit = {}
 ) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        KyantBlurGlassBox(
-            modifier = modifier,
-            shape = shape,
-            tint = tint,
-            content = content
-        )
-    } else {
-        GlassBox(modifier = modifier, tint = tint, shape = shape, content = content)
-    }
-}
-
-@Composable
-fun KyantBlurGlassBox(
-    modifier: Modifier = Modifier,
-    blurRadius: Float = 32f,
-    shape: Shape = CircleShape,
-    tint: Color = Color.White.copy(alpha = 0.08f),
-    content: @Composable BoxScope.() -> Unit = {}
-) {
-    val backdrop = rememberLayerBackdrop()
-
     Box(
-        modifier = modifier
-            .clip(shape)
-            .layerBackdrop(backdrop)
-            .border(
-                width = 0.8.dp,
-                brush = Brush.verticalGradient(
-                    0.0f to Color.White.copy(alpha = 0.65f),
-                    0.4f to Color.White.copy(alpha = 0.22f),
-                    1.0f to Color.White.copy(alpha = 0.05f)
-                ),
-                shape = shape
-            )
-    ) {
-        // Слой 1: blur фона через правильный Modifier API
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .drawBackdrop(backdrop, BlurEffect(blurRadius, blurRadius, TileMode.Clamp))
-                .drawBehind { drawRect(tint) }
+        modifier = modifier.drawBackdrop(
+            backdrop = backdrop,
+            shape = { Capsule() },
+            effects = {
+                vibrancy()
+                blur(blurRadius.dp.toPx())
+                if (lensX > 0f || lensY > 0f) {
+                    lens(lensX.dp.toPx(), lensY.dp.toPx())
+                }
+            },
+            onDrawSurface = {
+                drawRect(surfaceColor)
+            }
         )
-
-        // Слой 2: контент поверх
-        Box(modifier = Modifier.fillMaxSize()) {
-            content()
-        }
+    ) {
+        content()
     }
 }

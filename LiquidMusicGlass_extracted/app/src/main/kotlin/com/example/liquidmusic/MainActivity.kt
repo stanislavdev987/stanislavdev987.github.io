@@ -50,6 +50,8 @@ import com.example.liquidmusic.ui.screens.ExpandedPlayerOverlay
 import com.example.liquidmusic.ui.theme.HomeBackgroundBrush
 import com.example.liquidmusic.ui.theme.LiquidAccent
 import com.example.liquidmusic.ui.theme.LiquidMusicTheme
+import com.kyant.backdrop.backdrops.layerBackdrop
+import com.kyant.backdrop.backdrops.rememberLayerBackdrop
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +75,7 @@ fun LiquidMusicHome() {
         BottomNavItem("Radio", Icons.Rounded.Sensors),
         BottomNavItem("Library", Icons.Rounded.LibraryMusic)
     )
+    val backdrop = rememberLayerBackdrop()
     var selectedIndex by remember { mutableIntStateOf(0) }
     var isPlaying by remember { mutableStateOf(true) }
     var isExpandedPlayer by remember { mutableStateOf(false) }
@@ -92,6 +95,7 @@ fun LiquidMusicHome() {
                 .fillMaxSize()
                 .scale(homeScale)
                 .alpha(homeAlpha)
+                .layerBackdrop(backdrop)
                 .drawBehind {
                     drawCircle(
                         brush = Brush.radialGradient(
@@ -124,6 +128,7 @@ fun LiquidMusicHome() {
             ) {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     MiniPlayerReplicaStyle(
+                        backdrop = backdrop,
                         trackTitle = "Girl Like Me",
                         artistName = "PinkPantheress",
                         isPlaying = isPlaying,
@@ -132,6 +137,7 @@ fun LiquidMusicHome() {
                         onPlayerClick = { isExpandedPlayer = true }
                     )
                     NewAppleMusicBottomBar(
+                        backdrop = backdrop,
                         items = items,
                         selectedIndex = selectedIndex,
                         onItemClick = { selectedIndex = it }

@@ -24,7 +24,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Pause
@@ -39,7 +38,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
@@ -48,10 +46,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.liquidmusic.ui.glass.RefractionGlassBox
+import com.example.liquidmusic.ui.glass.LiquidGlassBox
+import com.kyant.backdrop.Backdrop
 
 @Composable
 fun MiniPlayerReplicaStyle(
+    backdrop: Backdrop,
     trackTitle: String,
     artistName: String,
     isPlaying: Boolean,
@@ -66,7 +66,8 @@ fun MiniPlayerReplicaStyle(
         animationSpec = spring(stiffness = Spring.StiffnessLow),
         label = ""
     )
-    RefractionGlassBox(
+    LiquidGlassBox(
+        backdrop = backdrop,
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 6.dp)
             .fillMaxWidth()
@@ -77,9 +78,10 @@ fun MiniPlayerReplicaStyle(
                 indication = null,
                 onClick = onPlayerClick
             ),
-        refraction = 0.3f,
-        tint = Color.White.copy(alpha = 0.10f),
-        shape = CircleShape
+        blurRadius = 8f,
+        lensX = 8f,
+        lensY = 16f,
+        surfaceColor = Color.White.copy(alpha = 0.10f)
     ) {
         Row(
             modifier = Modifier
@@ -146,6 +148,7 @@ fun AppleIconButton(icon: ImageVector, onClick: () -> Unit) {
 
 @Composable
 fun NewAppleMusicBottomBar(
+    backdrop: Backdrop,
     items: List<BottomNavItem>,
     selectedIndex: Int,
     onItemClick: (Int) -> Unit
@@ -157,13 +160,15 @@ fun NewAppleMusicBottomBar(
             .padding(bottom = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        RefractionGlassBox(
+        LiquidGlassBox(
+            backdrop = backdrop,
             modifier = Modifier
                 .weight(1f)
                 .height(64.dp),
-            refraction = 0.3f,
-            tint = Color.White.copy(alpha = 0.10f),
-            shape = CircleShape
+            blurRadius = 8f,
+            lensX = 12f,
+            lensY = 24f,
+            surfaceColor = Color.White.copy(alpha = 0.10f)
         ) {
             BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                 val tabWidth = maxWidth / items.size
@@ -213,15 +218,17 @@ fun NewAppleMusicBottomBar(
         )
         val sa by animateFloatAsState(if (sp) 0.6f else 1f, tween(150), label = "")
 
-        RefractionGlassBox(
+        LiquidGlassBox(
+            backdrop = backdrop,
             modifier = Modifier
                 .size(64.dp)
                 .scale(ss)
                 .alpha(sa)
                 .clickable(interactionSource = si, indication = null, onClick = {}),
-            refraction = 0.3f,
-            tint = Color.White.copy(alpha = 0.10f),
-            shape = CircleShape
+            blurRadius = 8f,
+            lensX = 12f,
+            lensY = 24f,
+            surfaceColor = Color.White.copy(alpha = 0.10f)
         ) {
             Icon(
                 Icons.Rounded.Search,
