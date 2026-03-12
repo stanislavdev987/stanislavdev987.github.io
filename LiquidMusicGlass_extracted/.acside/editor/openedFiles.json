@@ -1,0 +1,155 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 6509,
+          "line": 155
+        },
+        "start": {
+          "column": 0,
+          "index": 6509,
+          "line": 155
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 71,
+          "index": 1318,
+          "line": 45
+        },
+        "start": {
+          "column": 71,
+          "index": 1318,
+          "line": 45
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/gradle/libs.versions.toml",
+      "selection": {
+        "end": {
+          "column": 13,
+          "index": 39,
+          "line": 2
+        },
+        "start": {
+          "column": 13,
+          "index": 39,
+          "line": 2
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/Components/Components.kt",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 3854,
+          "line": 125
+        },
+        "start": {
+          "column": 1,
+          "index": 3854,
+          "line": 125
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/Components/BottomBar.kt",
+      "selection": {
+        "end": {
+          "column": 11,
+          "index": 8833,
+          "line": 237
+        },
+        "start": {
+          "column": 11,
+          "index": 8833,
+          "line": 237
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/screens/PlayerScreen.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 13772,
+          "line": 299
+        },
+        "start": {
+          "column": 0,
+          "index": 13772,
+          "line": 299
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/settings.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 15,
+          "index": 381,
+          "line": 19
+        },
+        "start": {
+          "column": 15,
+          "index": 381,
+          "line": 19
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/glass/GlassBox.kt",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 1835,
+          "line": 61
+        },
+        "start": {
+          "column": 1,
+          "index": 1835,
+          "line": 61
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/glass/RefractionGlass.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 3228,
+          "line": 95
+        },
+        "start": {
+          "column": 0,
+          "index": 3228,
+          "line": 95
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/src/main/kotlin/com/example/liquidmusic/ui/screens/HomeScreen.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 4612,
+          "line": 135
+        },
+        "start": {
+          "column": 0,
+          "index": 4612,
+          "line": 135
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic_LiquidGlass/LiquidMusicGlass/app/build.gradle.kts"
+}

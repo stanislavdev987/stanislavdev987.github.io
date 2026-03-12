@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic/app/src/main/kotlin/com/example/liquidmusic/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 3055,
+          "line": 109
+        },
+        "start": {
+          "column": 1,
+          "index": 3055,
+          "line": 109
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/MusicMoodPlayer/Проекты/LiquidMusic/app/src/main/kotlin/com/example/liquidmusic/MainActivity.kt"
+}
